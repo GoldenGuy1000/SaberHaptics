@@ -3,10 +3,11 @@
   "id": "SaberHaptics",
   "name": "SaberHaptics",
   "author": "GoldenGuy1000",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Change the haptic feedback of slicing notes (& other collisions).",
   "gameVersion": "1.24.0",
   "dependsOn": {
     "BSIPA": "^4.2.0"
+    "BeatSaberMarkupLanguage":  "^1.6.6"
   }
 }
