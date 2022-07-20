@@ -43,4 +43,7 @@ namespace SaberHaptics
 
     }
 }
-// TODO: chain head notes, chain slice notes, normal notes, bombs, saber self collision, wall collision
+// TODO: chain head notes, chain slice notes, normal notes, bombs
+// TODO: saber self collision, wall collision <- read through tweaks55 to make sure it doesn't buggin
+// TODO: funny swap saber haptics
+// TODO: disable haptics for one controller
