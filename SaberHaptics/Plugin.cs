@@ -29,7 +29,7 @@ namespace SaberHaptics
         [OnEnable]
         public void OnEnable()
         {
-            BSMLSettings.instance.AddSettingsMenu("SaberHaptics", "Saberhaptics.Saberhaptics.settings.bsml", SettingsHandler.instance);
+            BSMLSettings.instance.AddSettingsMenu("SaberHaptics", "SaberHaptics.SaberHaptics.settings.bsml", SettingsHandler.instance);
             Log.Info("SaberHaptics enabled");
         }
 
