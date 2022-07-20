@@ -23,13 +23,13 @@ namespace SaberHaptics
             Log = logger;
             Configuration.Instance = conf.Generated<Configuration>();
             harmony = new Harmony("SaberHaptics.GoldenGuy1000");
-            harmony.PatchAll(typeof(HarmonyPatches));
         }
 
         [OnEnable]
         public void OnEnable()
         {
             BSMLSettings.instance.AddSettingsMenu("SaberHaptics", "SaberHaptics.SaberHaptics.settings.bsml", SettingsHandler.instance);
+            harmony.PatchAll(typeof(HarmonyPatches));
             Log.Info("SaberHaptics enabled");
         }
 
@@ -37,6 +37,7 @@ namespace SaberHaptics
         public void OnDisable()
         {
             BSMLSettings.instance.RemoveSettingsMenu(SettingsHandler.instance);
+            harmony.UnpatchSelf();
             Log.Info("SaberHaptics disabled");
         }
 
