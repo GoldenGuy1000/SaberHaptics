@@ -1,19 +1,16 @@
 ﻿using IPA;
-using IPA.Config;
 using IPA.Config.Stores;
 using IPALogger = IPA.Logging.Logger;
 using HarmonyLib;
-using System.Reflection;
 using BeatSaberMarkupLanguage.Settings;
-using NormaliseNoteRumble.NormaliseNoteRumble;
 
-namespace NormaliseNoteRumble
+namespace SaberHaptics
 {
     [Plugin(RuntimeOptions.SingleStartInit)]
     public class Plugin
     {
         internal static Plugin Instance { get; private set; }
-  
+
         internal static IPALogger Log { get; private set; }
 
         internal readonly Harmony harmony;
@@ -24,22 +21,25 @@ namespace NormaliseNoteRumble
         {
             Instance = this;
             Log = logger;
-            Config.Instance = conf.Generated<Config>();
-            harmony = new Harmony("NormaliseNoteRumble.GoldenGuy1000");
+            Configuration.Instance = conf.Generated<Configuration>();
+            harmony = new Harmony("SaberHaptics.GoldenGuy1000");
             harmony.PatchAll(typeof(HarmonyPatches));
         }
 
         [OnEnable]
         public void OnEnable()
         {
-            BSMLSettings.instance.AddSettingsMenu("NormaliseNoteRumble", "NormaliseNoteRumble.NormaliseNoteRumble.settings.bsml", SettingsHandler.instance);
+            BSMLSettings.instance.AddSettingsMenu("SaberHaptics", "Saberhaptics.Saberhaptics.settings.bsml", SettingsHandler.instance);
+            Log.Info("SaberHaptics enabled");
         }
 
         [OnDisable]
         public void OnDisable()
         {
             BSMLSettings.instance.RemoveSettingsMenu(SettingsHandler.instance);
+            Log.Info("SaberHaptics disabled");
         }
 
     }
 }
+// TODO: chain head notes, chain slice notes, normal notes, bombs, saber self collision, wall collision

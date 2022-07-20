@@ -8,8 +8,8 @@
     <ProjectGuid>{BD80C472-A5A8-492F-8242-99D4889AD635}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NormaliseNoteRumble</RootNamespace>
-    <AssemblyName>NormaliseNoteRumble</AssemblyName>
+    <RootNamespace>SaberHaptics</RootNamespace>
+    <AssemblyName>SaberHaptics</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <DebugSymbols>true</DebugSymbols>
@@ -100,10 +100,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NormaliseNoteRumble\HarmonyPatches.cs" />
-    <Compile Include="NormaliseNoteRumble\Plugin.cs" />
-    <Compile Include="NormaliseNoteRumble\Config.cs" />
-    <Compile Include="NormaliseNoteRumble\SettingsHandler.cs" />
+    <Compile Include="SaberHaptics\HarmonyPatches.cs" />
+    <Compile Include="SaberHaptics\Plugin.cs" />
+    <Compile Include="SaberHaptics\Configuration.cs" />
+    <Compile Include="SaberHaptics\SettingsHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -111,8 +111,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
-    <EmbeddedResource Include="NormaliseNoteRumble\settings.bsml" />
-    <None Include="NormaliseNoteRumble.csproj.user" Condition="Exists('NormaliseNoteRumble.csproj.user')" />
+    <EmbeddedResource Include="SaberHaptics\settings.bsml" />
+    <None Include="SaberHaptics.csproj.user" Condition="Exists('SaberHaptics.csproj.user')" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BeatSaberModdingTools.Tasks">

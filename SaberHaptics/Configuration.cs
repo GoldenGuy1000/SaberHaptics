@@ -3,11 +3,11 @@ using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo(GeneratedStore.AssemblyVisibilityTarget)]
 
-namespace NormaliseNoteRumble
+namespace SaberHaptics
 {
-    internal class Config
+    internal class Configuration
     {
-        public static Config Instance { get; set; }
+        public static Configuration Instance { get; set; }
 
         public bool ArcRumble { get; set; } = false;
     }

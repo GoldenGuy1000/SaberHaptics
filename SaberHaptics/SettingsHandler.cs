@@ -1,16 +1,16 @@
 ﻿using BeatSaberMarkupLanguage.Attributes;
 
-namespace NormaliseNoteRumble.NormaliseNoteRumble
+namespace SaberHaptics
 {
     class SettingsHandler: PersistentSingleton<SettingsHandler>
     {
         [UIValue("ArcRumble")]
         public bool ArcRumble
         {
-            get => Config.Instance.ArcRumble;
+            get => Configuration.Instance.ArcRumble;
             set
             {
-                Config.Instance.ArcRumble = value;
+                Configuration.Instance.ArcRumble = value;
             }
         }
     }

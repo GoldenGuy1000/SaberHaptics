@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace NormaliseNoteRumble
+namespace SaberHaptics
 {
     [HarmonyPatch]
     public class HarmonyPatches
@@ -9,7 +9,7 @@ namespace NormaliseNoteRumble
         [HarmonyPrefix]
         public static bool SliderHapticPatch()
         {
-            return Config.Instance.ArcRumble;
+            return Configuration.Instance.ArcRumble;
         }
     }
 }
