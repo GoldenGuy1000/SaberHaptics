@@ -94,10 +94,16 @@
       <HintPath>$(BeatSaberDir)\Libs\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="BSML">
+      <HintPath>$(BeatSaberDir)\Plugins\BSML.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HarmonyPatches.cs" />
-    <Compile Include="Plugin.cs" />
+    <Compile Include="NormaliseNoteRumble\HarmonyPatches.cs" />
+    <Compile Include="NormaliseNoteRumble\Plugin.cs" />
+    <Compile Include="NormaliseNoteRumble\Config.cs" />
+    <Compile Include="NormaliseNoteRumble\SettingsHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
+    <EmbeddedResource Include="NormaliseNoteRumble\settings.bsml" />
     <None Include="NormaliseNoteRumble.csproj.user" Condition="Exists('NormaliseNoteRumble.csproj.user')" />
   </ItemGroup>
   <ItemGroup>
