@@ -7,18 +7,18 @@ Arc Rumble: toggles controller rumble from arc notes
 
 
 ## Harmony Patches
-(don't worry about this unless you're also making a mod that interacts with these methods)
+(don't worry about this unless you're also making a mod that also interacts with these methods)
 
 ### prefixes
-SliderHapticFeedbackInteractionEffect.Update <- skips update if ArcRumble is disabled
-NoteCutCoreEffectsSpawner.HandleNoteWasCut <- completely replaces this method [1]
+`SliderHapticFeedbackInteractionEffect.Update` <- skips update if ArcRumble is disabled  
+`NoteCutCoreEffectsSpawner.HandleNoteWasCut` <- completely replaces this method [1]
 
 
 
-# build instructions
+# Build Instructions
 - Make SaberHaptics.csproj.user & put beat saber directory in there
 
-`<?xml version="1.0" encoding="utf-8"?>
+```xml
 <Project>
 	<PropertyGroup>
 		<BeatSaberDir>beat/saber/dir</BeatSaberDir>
@@ -26,7 +26,7 @@ NoteCutCoreEffectsSpawner.HandleNoteWasCut <- completely replaces this method [1
 		<!-- Path to your Beat Saber install, only set if different from BeatSaberDir. -->
 		<!--<GameDirectory></GameDirectory>-->
 	</PropertyGroup>
-</Project>`
+</Project>
+```
 
-
-[1] (other implementations like changing what type the note was in the actual haptics felt weird)
+[1] (other implementations like changing the amount of rumble based on what the preset corrosponded to felt jank)
