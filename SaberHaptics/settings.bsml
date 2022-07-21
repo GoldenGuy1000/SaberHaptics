@@ -1,3 +1,4 @@
 ﻿<settings-container>
-	<checkbox text="Arc Rumble" value="ArcRumble"></checkbox>
+	<checkbox text="Arc Rumble" value="ArcRumble"/>
+	<dropdown-list-setting text="Note Cut Feedback" value="NormalNoteHaptic" choices="HapticOptions"/>
 </settings-container>
