@@ -15,9 +15,9 @@ namespace SaberHaptics
         [HarmonyPatch(typeof(NoteCutCoreEffectsSpawner), nameof(NoteCutCoreEffectsSpawner.HandleNoteWasCut))]
         [HarmonyPrefix]
         static bool HapticIntensityPatch(NoteController noteController, in NoteCutInfo noteCutInfo,
-			NoteCutCoreEffectsSpawner __instance, NoteCutHapticEffect ___noteCutHapticEffect, AudioTimeSyncController ___audioTimeSyncController)
+			NoteCutCoreEffectsSpawner __instance, NoteCutHapticEffect ____noteCutHapticEffect, AudioTimeSyncController ____audioTimeSyncController)
         {
-			if (noteController.noteData.time + 0.5f < ___audioTimeSyncController.songTime)
+			if (noteController.noteData.time + 0.5f < ____audioTimeSyncController.songTime)
 			{
 				return false;
 			}
@@ -25,19 +25,19 @@ namespace SaberHaptics
 			{
 				case NoteData.GameplayType.Normal:
 					__instance.SpawnNoteCutEffect(noteCutInfo, noteController, 150, 50);
-					___noteCutHapticEffect.HitNote(noteCutInfo.saberType, NoteCutHapticEffect.Type.Normal);
+					____noteCutHapticEffect.HitNote(noteCutInfo.saberType, NoteCutHapticEffect.Type.Normal);
 					return false;
 				case NoteData.GameplayType.Bomb:
 					__instance.SpawnBombCutEffect(noteCutInfo, noteController);
-					___noteCutHapticEffect.HitNote(noteCutInfo.saberType, NoteCutHapticEffect.Type.Normal);
+					____noteCutHapticEffect.HitNote(noteCutInfo.saberType, NoteCutHapticEffect.Type.Normal);
 					return false;
 				case NoteData.GameplayType.BurstSliderHead:
 					__instance.SpawnNoteCutEffect(noteCutInfo, noteController, 150, 50);
-					___noteCutHapticEffect.HitNote(noteCutInfo.saberType, NoteCutHapticEffect.Type.ShortNormal);
+					____noteCutHapticEffect.HitNote(noteCutInfo.saberType, NoteCutHapticEffect.Type.ShortNormal);
 					return false;
 				case NoteData.GameplayType.BurstSliderElement:
 					__instance.SpawnNoteCutEffect(noteCutInfo, noteController, 50, 20);
-					___noteCutHapticEffect.HitNote(noteCutInfo.saberType, NoteCutHapticEffect.Type.ShortWeak);
+					____noteCutHapticEffect.HitNote(noteCutInfo.saberType, NoteCutHapticEffect.Type.ShortWeak);
 					return false;
 				default:
 					return false;
