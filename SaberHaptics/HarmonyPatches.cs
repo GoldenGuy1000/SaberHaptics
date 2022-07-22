@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Libraries.HM.HMLib.VR;
+using SaberHaptics.SaberHaptics;
 
 namespace SaberHaptics
 {
@@ -26,26 +27,26 @@ namespace SaberHaptics
 		[HarmonyPatch(typeof(NoteCutHapticEffect), nameof(NoteCutHapticEffect.HitNote))]
 		[HarmonyPrefix]
 		static bool NoteHapticsPatch(SaberType saberType,
-			HapticPresetSO ____normalPreset, HapticPresetSO ____shortNormalPreset, HapticPresetSO ____shortWeakPreset,
 			HapticFeedbackController ____hapticFeedbackController)
         {
+
 			HapticPresetSO hapticPreset;
 			switch (lastNoteCut)
             {
 				case NoteData.GameplayType.Normal:
-					hapticPreset = ____normalPreset;
+					hapticPreset = DefaultNotePresets.HitNoteHapticPreset;
 					break;
 				case NoteData.GameplayType.Bomb:
-					hapticPreset = ____normalPreset;
+					hapticPreset = DefaultNotePresets.HitNoteHapticPreset;
 					break;
 				case NoteData.GameplayType.BurstSliderHead:
-					hapticPreset = ____shortNormalPreset;
+					hapticPreset = DefaultNotePresets.HitBurstSliderHeadHapticPreset;
 					break;
 				case NoteData.GameplayType.BurstSliderElement:
-					hapticPreset = ____shortWeakPreset;
+					hapticPreset = DefaultNotePresets.HitBurstSliderElementHapticPreset;
 					break;
 				default:
-					hapticPreset = ____normalPreset;
+					hapticPreset = DefaultNotePresets.HitNoteHapticPreset;
 					break;
 			}
 
@@ -54,38 +55,27 @@ namespace SaberHaptics
 			return false;
         }
 
-
-
-
-		[System.Obsolete("HapticIntensityPatch is a transpiler for what this was supposed to do")]
-        static bool OldHapticIntensityPrefix(NoteController noteController, in NoteCutInfo noteCutInfo,
-			NoteCutCoreEffectsSpawner __instance, NoteCutHapticEffect ____noteCutHapticEffect, AudioTimeSyncController ____audioTimeSyncController)
+		// log the default presets (put in DefaultNotePresets)
+		
+		/*[HarmonyPatch(typeof(NoteCutHapticEffect), nameof(NoteCutHapticEffect.HitNote))]
+		[HarmonyPrefix]
+		static void GetNoteHapticPresets(HapticPresetSO ____normalPreset, HapticPresetSO ____shortNormalPreset, HapticPresetSO ____shortWeakPreset)
         {
-			if (noteController.noteData.time + 0.5f < ____audioTimeSyncController.songTime)
-			{
-				return false;
-			}
-			switch (noteController.noteData.gameplayType)
-			{
-				case NoteData.GameplayType.Normal:
-					__instance.SpawnNoteCutEffect(noteCutInfo, noteController, 150, 50);
-					____noteCutHapticEffect.HitNote(noteCutInfo.saberType, NoteCutHapticEffect.Type.Normal);
-					return false;
-				case NoteData.GameplayType.Bomb:
-					__instance.SpawnBombCutEffect(noteCutInfo, noteController);
-					____noteCutHapticEffect.HitNote(noteCutInfo.saberType, NoteCutHapticEffect.Type.Normal);
-					return false;
-				case NoteData.GameplayType.BurstSliderHead:
-					__instance.SpawnNoteCutEffect(noteCutInfo, noteController, 150, 50);
-					____noteCutHapticEffect.HitNote(noteCutInfo.saberType, NoteCutHapticEffect.Type.ShortNormal);
-					return false;
-				case NoteData.GameplayType.BurstSliderElement:
-					__instance.SpawnNoteCutEffect(noteCutInfo, noteController, 50, 20);
-					____noteCutHapticEffect.HitNote(noteCutInfo.saberType, NoteCutHapticEffect.Type.ShortWeak);
-					return false;
-				default:
-					return false;
-			}
-		}
-    }
+			Plugin.Log.Info(____normalPreset.name + ":" +
+				"\n\tcontinuous - " + ____normalPreset._continuous +
+				"\n\tduration - " + ____normalPreset._duration +
+				"\n\tfrequency - " + ____normalPreset._frequency +
+				"\n\tstrength - " + ____normalPreset._strength);
+			Plugin.Log.Info(____shortNormalPreset.name + ":" +
+				"\n\tcontinuous - " + ____shortNormalPreset._continuous +
+				"\n\tduration - " + ____shortNormalPreset._duration +
+				"\n\tfrequency - " + ____shortNormalPreset._frequency +
+				"\n\tstrength - " + ____shortNormalPreset._strength);
+			Plugin.Log.Info(____shortWeakPreset.name + ":" +
+				"\n\tcontinuous - " + ____shortWeakPreset._continuous +
+				"\n\tduration - " + ____shortWeakPreset._duration +
+				"\n\tfrequency - " + ____shortWeakPreset._frequency +
+				"\n\tstrength - " + ____shortWeakPreset._strength);
+		}*/
+	}
 }
