@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using Libraries.HM.HMLib.VR;
-using SaberHaptics.SaberHaptics;
 
 namespace SaberHaptics
 {
@@ -21,7 +20,7 @@ namespace SaberHaptics
 		static void StoreNoteType(NoteController noteController)
         {
 			lastNoteCut = noteController.noteData.gameplayType;
-			Plugin.Log.Info("Note Type: " + lastNoteCut);
+			// Plugin.Log.Info("Note Type: " + lastNoteCut);
         }
 
 		[HarmonyPatch(typeof(NoteCutHapticEffect), nameof(NoteCutHapticEffect.HitNote))]
@@ -34,7 +33,7 @@ namespace SaberHaptics
 			switch (lastNoteCut)
             {
 				case NoteData.GameplayType.Normal:
-					hapticPreset = DefaultNotePresets.HitNoteHapticPreset;
+					hapticPreset = Configuration.Instance.NormalNoteImpact;
 					break;
 				case NoteData.GameplayType.Bomb:
 					hapticPreset = DefaultNotePresets.HitNoteHapticPreset;

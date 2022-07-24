@@ -1,5 +1,6 @@
 ﻿using IPA.Config.Stores;
 using System.Runtime.CompilerServices;
+using Libraries.HM.HMLib.VR;
 
 [assembly: InternalsVisibleTo(GeneratedStore.AssemblyVisibilityTarget)]
 
@@ -10,7 +11,7 @@ namespace SaberHaptics
         public static Configuration Instance { get; set; }
 
         public bool ArcRumble { get; set; } = false;
-        public NoteCutHapticEffect.Type NormalNoteImpact { get; set; } = NoteCutHapticEffect.Type.Normal;
+        public HapticPresetSO NormalNoteImpact { get; set; } = DefaultNotePresets.HitNoteHapticPreset;
     }
 }
 // TODO: defaults for settings should reflect the game without the mod
