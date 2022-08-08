@@ -33,7 +33,7 @@ namespace SaberHaptics
 			switch (lastNoteCut)
             {
 				case NoteData.GameplayType.Normal:
-					hapticPreset = Configuration.Instance.NormalNoteImpact;
+					hapticPreset = Configuration.Instance.CustomNormal? Configuration.Instance.NormalNoteImpact: DefaultNotePresets.HitNoteHapticPreset;
 					break;
 				case NoteData.GameplayType.Bomb:
 					hapticPreset = DefaultNotePresets.HitNoteHapticPreset;

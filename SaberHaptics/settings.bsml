@@ -1,4 +1,26 @@
-﻿<settings-container>
-	<checkbox text="Arc Rumble" value="ArcRumble"/>
-	<dropdown-list-setting text="Note Cut Feedback" value="NormalNoteHaptic" choices="HapticOptions"/>
-</settings-container>
+﻿<vertical>
+	<horizontal>
+		<checkbox text="Arc Rumble" value="ArcRumble"/>
+	</horizontal>
+	<vertical vertical-fit="MinSize" spacing="8">
+		<vertical vertical-fit="MinSize">
+			<horizontal pad-right="20">
+				<text text="Normal Notes" align="Center" italics="true" bold="true" font-size="9"/>
+			</horizontal>
+			<horizontal>
+				<checkbox text="" value="CustomNormal" apply-on-change="true"/>
+			</horizontal>
+		</vertical>
+		<horizontal>
+			<slider-setting text="Duration" value="nDuration" min="0" max="1" interactable="~CustomNormal" id="nDurationS"/>
+		</horizontal>
+		<!--
+		<horizontal>
+			<slider-setting text="Frequency" value="nFrequency" min="0" max="1"  interactable="~CustomNormal" id="nFrequencyS"/>
+		</horizontal>
+		-->
+		<horizontal>
+			<slider-setting text="Strength" value="nStrength" min="0" max="1" interactable="~CustomNormal" id="nStrengthS"/>
+		</horizontal>
+	</vertical>
+</vertical>

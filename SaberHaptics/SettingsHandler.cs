@@ -1,19 +1,10 @@
 ﻿using BeatSaberMarkupLanguage.Attributes;
-using Libraries.HM.HMLib.VR;
-using System.Collections.Generic;
-using System.Linq;
+using BeatSaberMarkupLanguage.Components.Settings;
 
 namespace SaberHaptics
 {
     class SettingsHandler : PersistentSingleton<SettingsHandler>
     {
-        Dictionary<string, HapticPresetSO> hapticOptionToPreset = new Dictionary<string, HapticPresetSO>
-        {
-            { (string)hapticOptions[0], DefaultNotePresets.HitNoteHapticPreset },
-            { (string)hapticOptions[1], DefaultNotePresets.HitBurstSliderHeadHapticPreset },
-            { (string)hapticOptions[2], DefaultNotePresets.HitBurstSliderElementHapticPreset },
-            { (string)hapticOptions[3], DefaultNotePresets.None }
-        };
 
         [UIValue("ArcRumble")]
         bool ArcRumble
@@ -25,24 +16,58 @@ namespace SaberHaptics
             }
         }
 
-        [UIValue("NormalNoteHaptic")]
-        string normalNoteHaptic {
-            get => Configuration.Instance.NormalNoteImpact.name;
+        [UIValue("CustomNormal")]
+        bool CustomNormal
+        {
+            get => Configuration.Instance.CustomNormal;
             set
             {
-                Configuration.Instance.NormalNoteImpact = hapticOptionToPreset.ContainsKey(value)
-                    ? hapticOptionToPreset[value]
-                    : DefaultNotePresets.HitNoteHapticPreset;
+                Plugin.Log.Info("customnormal = " + value.ToString());
+                nDurationS.interactable = /*nFrequencyS.interactable =*/ nStrengthS.interactable = value;
+                Configuration.Instance.CustomNormal = value;
             }
         }
 
-        [UIValue("HapticOptions")]
-        static List<object> hapticOptions = new object[] { 
-            DefaultNotePresets.HitNoteHapticPreset.name,
-            DefaultNotePresets.HitBurstSliderHeadHapticPreset.name,
-            DefaultNotePresets.HitBurstSliderElementHapticPreset.name,
-            DefaultNotePresets.None.name
-        }.ToList();
+        [UIComponent("nDurationS")] // the slider object for duration
+        SliderSetting nDurationS;
+
+        [UIValue("nDuration")]
+        float nHapticDuration
+        {
+            get => Configuration.Instance.NormalNoteImpact._duration;
+            set
+            {
+                Configuration.Instance.NormalNoteImpact._duration = value;
+            }
+        }
+
+        // frequency doesn't seem to do anything noticeable (so slider is hidden in game)
+
+        [UIComponent("nFrequencyS")]
+        SliderSetting nFrequencyS;
+
+        [UIValue("nFrequency")]
+        float nHapticFrequency
+        {
+            get => Configuration.Instance.NormalNoteImpact._frequency;
+            set
+            {
+                Configuration.Instance.NormalNoteImpact._frequency = value;
+            }
+        }
+
+        [UIComponent("nStrengthS")]
+        SliderSetting nStrengthS;
+
+        [UIValue("nStrength")]
+        float nHapticStrength
+        {
+            get => Configuration.Instance.NormalNoteImpact._strength;
+            set
+            {
+                Configuration.Instance.NormalNoteImpact._strength = value;
+            }
+        }
 
         [UIAction("#apply")]
         public void OnApply()

@@ -28,15 +28,5 @@ namespace SaberHaptics
             _frequency = 0.5f,
             _strength = 1f
         };
-
-        // Not from the base game
-
-        public static readonly HapticPresetSO None = new HapticPresetSO {
-            name = "None",
-            _continuous = false,
-            _duration = 0f,
-            _frequency = 0f,
-            _strength = 0f,
-        };
     }
 }
