@@ -2,17 +2,23 @@
 	<horizontal>
 		<checkbox text="Arc Rumble" value="ArcRumble"/>
 	</horizontal>
+	<horizontal>
+		<checkbox text="Left Controller Rumble" value="leftControllerRumble"/>
+	</horizontal>
+	<horizontal>
+		<checkbox text="Right Controller Rumble" value="rightControllerRumble"/>
+	</horizontal>
 	<vertical vertical-fit="MinSize" spacing="8">
 		<vertical vertical-fit="MinSize">
-			<horizontal pad-right="20">
-				<text text="Normal Notes" align="Center" italics="true" bold="true" font-size="9"/>
+			<horizontal pad-right="22">
+				<text text="Customise Normal Notes" align="Center" italics="true" bold="true" font-size="7"/>
 			</horizontal>
 			<horizontal>
 				<checkbox text="" value="CustomNormal" apply-on-change="true"/>
 			</horizontal>
 		</vertical>
 		<horizontal>
-			<slider-setting text="Duration" value="nDuration" min="0" max="1" interactable="~CustomNormal" id="nDurationS"/>
+			<slider-setting text="Duration" value="nDuration" min="0.00" max="1" interactable="~CustomNormal" id="nDurationS"/>
 		</horizontal>
 		<!--
 		<horizontal>
@@ -20,7 +26,7 @@
 		</horizontal>
 		-->
 		<horizontal>
-			<slider-setting text="Strength" value="nStrength" min="0" max="1" interactable="~CustomNormal" id="nStrengthS"/>
+			<slider-setting text="Strength" value="nStrength" min="0.01" max="1" interactable="~CustomNormal" id="nStrengthS"/>
 		</horizontal>
 	</vertical>
 </vertical>

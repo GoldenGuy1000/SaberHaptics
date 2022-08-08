@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Libraries.HM.HMLib.VR;
+using UnityEngine.XR;
 
 namespace SaberHaptics
 {
@@ -28,7 +29,6 @@ namespace SaberHaptics
 		static bool NoteHapticsPatch(SaberType saberType,
 			HapticFeedbackController ____hapticFeedbackController)
         {
-
 			HapticPresetSO hapticPreset;
 			switch (lastNoteCut)
             {
@@ -53,6 +53,15 @@ namespace SaberHaptics
 
 			return false;
         }
+
+		[HarmonyPatch(typeof(HapticFeedbackController), nameof(HapticFeedbackController.PlayHapticFeedback))]
+		[HarmonyPrefix]
+		static bool DisableHapticsPatch(XRNode node)
+        {
+			// if rumble for a certain saber isn't enabled, don't send haptic feedback
+			return (Configuration.Instance.leftControllerRumble && node == XRNode.LeftHand) || (Configuration.Instance.rightControllerRumble && node == XRNode.RightHand);
+		}
+
 
 		// log the default presets (put in DefaultNotePresets)
 		

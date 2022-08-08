@@ -16,6 +16,27 @@ namespace SaberHaptics
             }
         }
 
+        [UIValue("leftControllerRumble")]
+        bool LeftControllerRumble
+        {
+            get => Configuration.Instance.leftControllerRumble;
+            set
+            {
+                Configuration.Instance.leftControllerRumble = value;
+            }
+        }
+
+        [UIValue("rightControllerRumble")]
+        bool RightControllerRumble
+        {
+            get => Configuration.Instance.rightControllerRumble;
+            set
+            {
+                Configuration.Instance.rightControllerRumble = value;
+            }
+        }
+
+
         [UIValue("CustomNormal")]
         bool CustomNormal
         {

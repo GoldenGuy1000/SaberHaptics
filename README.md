@@ -15,6 +15,7 @@ Arc Rumble: toggles controller rumble from arc notes
 `SliderHapticFeedbackInteractionEffect.Update` <- skips update if ArcRumble is disabled  
 `NoteCutCoreEffectsSpawner.HandleNoteWasCut` <- will not skip (just gets the note type)
 `NoteCutHapticEffect.HitNote` <- replaced
+`HapticFeedbackController` <- skips if haptic feedback is disabled
 
 
 
