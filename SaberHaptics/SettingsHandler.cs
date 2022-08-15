@@ -36,6 +36,7 @@ namespace SaberHaptics
             }
         }
 
+        #region Custom Normal
 
         [UIValue("CustomNormal")]
         bool CustomNormal
@@ -89,6 +90,67 @@ namespace SaberHaptics
                 Configuration.Instance.NormalNoteImpact._strength = value;
             }
         }
+        #endregion
+
+
+
+        #region Custom Chain Head
+
+        [UIValue("CustomChainHead")]
+        bool CustomChainHead
+        {
+            get => Configuration.Instance.CustomChainHead;
+            set
+            {
+                Plugin.Log.Info("customchainhead = " + value.ToString());
+                chDurationS.interactable = /*chFrequencyS.interactable =*/ chStrengthS.interactable = value;
+                Configuration.Instance.CustomChainHead = value;
+            }
+        }
+
+        [UIComponent("chDurationS")] // the slider object for duration
+        SliderSetting chDurationS;
+
+        [UIValue("chDuration")]
+        float chHapticDuration
+        {
+            get => Configuration.Instance.ChainHeadImpact._duration;
+            set
+            {
+                Configuration.Instance.ChainHeadImpact._duration = value;
+            }
+        }
+
+        // frequency doesn't seem to do anything noticeable (so slider is hidden in game)
+
+        [UIComponent("chFrequencyS")]
+        SliderSetting chFrequencyS;
+
+        [UIValue("chFrequency")]
+        float chHapticFrequency
+        {
+            get => Configuration.Instance.ChainHeadImpact._frequency;
+            set
+            {
+                Configuration.Instance.ChainHeadImpact._frequency = value;
+            }
+        }
+
+        [UIComponent("chStrengthS")]
+        SliderSetting chStrengthS;
+
+        [UIValue("chStrength")]
+        float chHapticStrength
+        {
+            get => Configuration.Instance.ChainHeadImpact._strength;
+            set
+            {
+                Configuration.Instance.ChainHeadImpact._strength = value;
+            }
+        }
+        #endregion
+
+
 
         [UIAction("#apply")]
         public void OnApply()

@@ -17,5 +17,8 @@ namespace SaberHaptics
 
         public bool CustomNormal = false;
         public HapticPresetSO NormalNoteImpact { get; set; } = DefaultNotePresets.HitNoteHapticPreset;
+
+        public bool CustomChainHead = false;
+        public HapticPresetSO ChainHeadImpact { get; set; } = DefaultNotePresets.HitBurstSliderHeadHapticPreset;
     }
 }

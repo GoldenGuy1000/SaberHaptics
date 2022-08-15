@@ -46,7 +46,6 @@ namespace SaberHaptics
 // TODO: chain head notes, chain slice notes, normal notes, bombs
 // TODO: saber self collision, wall collision <- read through tweaks55 to make sure it doesn't buggin
 // TODO: funny swap saber haptics
-// TODO: disable haptics for one controller
 // TODO: read through tweaks55's rumble mod -- https://github.com/kinsi55/BeatSaber_Tweaks55
 
 // gameplaycore sabertype (used by) <- interesting classes
