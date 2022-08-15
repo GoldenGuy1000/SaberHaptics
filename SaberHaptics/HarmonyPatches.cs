@@ -36,7 +36,7 @@ namespace SaberHaptics
 					hapticPreset = Configuration.Instance.CustomNormal? Configuration.Instance.NormalNoteImpact: DefaultNotePresets.HitNoteHapticPreset;
 					break;
 				case NoteData.GameplayType.Bomb:
-					hapticPreset = DefaultNotePresets.HitNoteHapticPreset;
+					hapticPreset = Configuration.Instance.CustomBomb ? Configuration.Instance.BombImpact : DefaultNotePresets.HitNoteHapticPreset;
 					break;
 				case NoteData.GameplayType.BurstSliderHead:
 					hapticPreset = Configuration.Instance.CustomChainHead ? Configuration.Instance.ChainHeadImpact : DefaultNotePresets.HitBurstSliderHeadHapticPreset;

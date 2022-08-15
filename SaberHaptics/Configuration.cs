@@ -11,12 +11,16 @@ namespace SaberHaptics
     {
         public static Configuration Instance { get; set; }
 
-        public bool ArcRumble { get; set; } = true;
         public bool leftControllerRumble { get; set; } = true;
         public bool rightControllerRumble { get; set; } = true;
+        public bool ArcRumble { get; set; } = true;
+        // public bool swapControllerRumble { get; set; } = false;
 
         public bool CustomNormal = false;
         public HapticPresetSO NormalNoteImpact { get; set; } = DefaultNotePresets.HitNoteHapticPreset;
+
+        public bool CustomBomb = false;
+        public HapticPresetSO BombImpact { get; set; } = DefaultNotePresets.HitNoteHapticPreset;
 
         public bool CustomChainHead = false;
         public HapticPresetSO ChainHeadImpact { get; set; } = DefaultNotePresets.HitBurstSliderHeadHapticPreset;

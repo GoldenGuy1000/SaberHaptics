@@ -6,16 +6,6 @@ namespace SaberHaptics
     class SettingsHandler : PersistentSingleton<SettingsHandler>
     {
 
-        [UIValue("ArcRumble")]
-        bool ArcRumble
-        {
-            get => Configuration.Instance.ArcRumble;
-            set
-            {
-                Configuration.Instance.ArcRumble = value;
-            }
-        }
-
         [UIValue("leftControllerRumble")]
         bool LeftControllerRumble
         {
@@ -33,6 +23,16 @@ namespace SaberHaptics
             set
             {
                 Configuration.Instance.rightControllerRumble = value;
+            }
+        }
+
+        [UIValue("ArcRumble")]
+        bool ArcRumble
+        {
+            get => Configuration.Instance.ArcRumble;
+            set
+            {
+                Configuration.Instance.ArcRumble = value;
             }
         }
 
@@ -92,6 +92,62 @@ namespace SaberHaptics
         }
         #endregion
 
+
+        #region Custom Bomb
+
+        [UIValue("CustomBomb")]
+        bool CustomBomb
+        {
+            get => Configuration.Instance.CustomBomb;
+            set
+            {
+                Plugin.Log.Info("custombomb = " + value.ToString());
+                bDurationS.interactable = /*bFrequencyS.interactable =*/ bStrengthS.interactable = value;
+                Configuration.Instance.CustomBomb = value;
+            }
+        }
+
+        [UIComponent("bDurationS")] // the slider object for duration
+        SliderSetting bDurationS;
+
+        [UIValue("bDuration")]
+        float bHapticDuration
+        {
+            get => Configuration.Instance.BombImpact._duration;
+            set
+            {
+                Configuration.Instance.BombImpact._duration = value;
+            }
+        }
+
+        // frequency doesn't seem to do anything noticeable (so slider is hidden in game)
+
+        [UIComponent("bFrequencyS")]
+        SliderSetting bFrequencyS;
+
+        [UIValue("bFrequency")]
+        float bHapticFrequency
+        {
+            get => Configuration.Instance.BombImpact._frequency;
+            set
+            {
+                Configuration.Instance.BombImpact._frequency = value;
+            }
+        }
+
+        [UIComponent("bStrengthS")]
+        SliderSetting bStrengthS;
+
+        [UIValue("bStrength")]
+        float bHapticStrength
+        {
+            get => Configuration.Instance.BombImpact._strength;
+            set
+            {
+                Configuration.Instance.BombImpact._strength = value;
+            }
+        }
+        #endregion
 
 
         #region Custom Chain Head

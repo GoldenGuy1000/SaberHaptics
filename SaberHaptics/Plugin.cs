@@ -43,10 +43,14 @@ namespace SaberHaptics
 
     }
 }
-// TODO: chain head notes, chain slice notes, normal notes, bombs
-// TODO: saber self collision, wall collision <- read through tweaks55 to make sure it doesn't buggin
-// TODO: funny swap saber haptics
-// TODO: read through tweaks55's rumble mod -- https://github.com/kinsi55/BeatSaber_Tweaks55
+// for 1.0:
+// TODO: configurable: chain slice notes
+// TODO: saber self collision, wall collision
+// TODO: extend setting slider length
+// TODO: reset button for all settings & each note type
+
+// TODO: funny swap saber haptics <-- no implementation for 1.0.0
+// tweaks55 -- https://github.com/kinsi55/BeatSaber_Tweaks55
 
 // gameplaycore sabertype (used by) <- interesting classes
 // bsml docs -> https://monkeymanboy.github.io/BSML-Docs/Tags/slidersettingtag/

@@ -2,20 +2,20 @@
 	<!--toggle settings-->
 	<vertical vertical-fit="MinSize" spacing="7">
 		<horizontal>
-			<checkbox text="Arc Rumble" value="ArcRumble"/>
-		</horizontal>
-		<horizontal>
 			<checkbox text="Left Controller Rumble" value="leftControllerRumble"/>
 		</horizontal>
 		<horizontal>
 			<checkbox text="Right Controller Rumble" value="rightControllerRumble"/>
+		</horizontal>
+		<horizontal>
+			<checkbox text="Arc Rumble" value="ArcRumble"/>
 		</horizontal>
 	</vertical>
 	<!--note adjustment-->
 	<vertical vertical-fit="MinSize" spacing="8">
 		<vertical vertical-fit="MinSize">
 			<horizontal pad-right="22">
-				<text text="Customise Normal Notes" align="Center" italics="true" bold="true" font-size="7"/>
+				<text text="Normal Notes" align="Center" italics="true" bold="true" font-size="7"/>
 			</horizontal>
 			<horizontal>
 				<checkbox text="" value="CustomNormal" apply-on-change="true"/>
@@ -36,7 +36,28 @@
 	<vertical vertical-fit="MinSize" spacing="8">
 		<vertical vertical-fit="MinSize">
 			<horizontal pad-right="22">
-				<text text="Customise Chain Heads" align="Center" italics="true" bold="true" font-size="7"/>
+				<text text="Bombs" align="Center" italics="true" bold="true" font-size="7"/>
+			</horizontal>
+			<horizontal>
+				<checkbox text="" value="CustomBomb" apply-on-change="true"/>
+			</horizontal>
+		</vertical>
+		<horizontal>
+			<slider-setting text="Duration" value="bDuration" min="0.00" max="1" interactable="~CustomBomb" id="bDurationS"/>
+		</horizontal>
+		<!--
+			<horizontal>
+				<slider-setting text="Frequency" value="bFrequency" min="0" max="1"  interactable="~CustomBomb" id="bFrequencyS"/>
+			</horizontal>
+		-->
+		<horizontal>
+			<slider-setting text="Strength" value="bStrength" min="0.01" max="1" interactable="~CustomBomb" id="bStrengthS"/>
+		</horizontal>
+	</vertical>
+	<vertical vertical-fit="MinSize" spacing="8">
+		<vertical vertical-fit="MinSize">
+			<horizontal pad-right="22">
+				<text text="Chain Heads" align="Center" italics="true" bold="true" font-size="7"/>
 			</horizontal>
 			<horizontal>
 				<checkbox text="" value="CustomChainHead" apply-on-change="true"/>
