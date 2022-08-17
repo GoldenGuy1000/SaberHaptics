@@ -24,5 +24,7 @@ namespace SaberHaptics
 
         public bool CustomChainHead = false;
         public HapticPresetSO ChainHeadImpact { get; set; } = DefaultNotePresets.HitBurstSliderHeadHapticPreset;
+        public bool CustomChainElement = false;
+        public HapticPresetSO ChainElementImpact { get; set; } = DefaultNotePresets.HitBurstSliderElementHapticPreset;
     }
 }

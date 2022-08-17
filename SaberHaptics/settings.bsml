@@ -14,15 +14,18 @@
 	<!--note adjustment-->
 	<vertical vertical-fit="MinSize" spacing="8">
 		<vertical vertical-fit="MinSize">
-			<horizontal pad-right="22">
+			<horizontal pad-right="40">
 				<text text="Normal Notes" align="Center" italics="true" bold="true" font-size="7"/>
+			</horizontal>
+			<horizontal pad-right="25">
+				<clickable-text text="⭯ Reset" align="Right" on-click="nReset"/>
 			</horizontal>
 			<horizontal>
 				<checkbox text="" value="CustomNormal" apply-on-change="true"/>
 			</horizontal>
 		</vertical>
 		<horizontal>
-			<slider-setting text="Duration" value="nDuration" min="0.00" max="1" interactable="~CustomNormal" id="nDurationS"/>
+			<slider-setting text="Duration" value="nDuration" min="0.00" max="0.5" interactable="~CustomNormal" id="nDurationS"/>
 		</horizontal>
 		<!--
 			<horizontal>
@@ -35,15 +38,18 @@
 	</vertical>
 	<vertical vertical-fit="MinSize" spacing="8">
 		<vertical vertical-fit="MinSize">
-			<horizontal pad-right="22">
+			<horizontal pad-right="40">
 				<text text="Bombs" align="Center" italics="true" bold="true" font-size="7"/>
+			</horizontal>
+			<horizontal pad-right="25">
+				<clickable-text text="⭯ Reset" align="Right" on-click="bReset"/>
 			</horizontal>
 			<horizontal>
 				<checkbox text="" value="CustomBomb" apply-on-change="true"/>
 			</horizontal>
 		</vertical>
 		<horizontal>
-			<slider-setting text="Duration" value="bDuration" min="0.00" max="1" interactable="~CustomBomb" id="bDurationS"/>
+			<slider-setting text="Duration" value="bDuration" min="0.00" max="0.5" interactable="~CustomBomb" id="bDurationS"/>
 		</horizontal>
 		<!--
 			<horizontal>
@@ -56,15 +62,18 @@
 	</vertical>
 	<vertical vertical-fit="MinSize" spacing="8">
 		<vertical vertical-fit="MinSize">
-			<horizontal pad-right="22">
+			<horizontal pad-right="40">
 				<text text="Chain Heads" align="Center" italics="true" bold="true" font-size="7"/>
+			</horizontal>
+			<horizontal pad-right="25">
+				<clickable-text text="⭯ Reset" align="Right" on-click="chReset"/>
 			</horizontal>
 			<horizontal>
 				<checkbox text="" value="CustomChainHead" apply-on-change="true"/>
 			</horizontal>
 		</vertical>
 		<horizontal>
-			<slider-setting text="Duration" value="chDuration" min="0.00" max="1" interactable="~CustomChainHead" id="chDurationS"/>
+			<slider-setting text="Duration" value="chDuration" min="0.00" max="0.5" interactable="~CustomChainHead" id="chDurationS"/>
 		</horizontal>
 		<!--
 			<horizontal>
@@ -73,6 +82,30 @@
 		-->
 		<horizontal>
 			<slider-setting text="Strength" value="chStrength" min="0.01" max="1" interactable="~CustomChainHead" id="chStrengthS"/>
+		</horizontal>
+	</vertical>
+	<vertical vertical-fit="MinSize" spacing="8">
+		<vertical vertical-fit="MinSize">
+			<horizontal pad-right="40">
+				<text text="Chain Elements" align="Center" italics="true" bold="true" font-size="7"/>
+			</horizontal>
+			<horizontal pad-right="25">
+				<clickable-text text="⭯ Reset" align="Right" on-click="ceReset"/>
+			</horizontal>
+			<horizontal>
+				<checkbox text="" value="CustomChainElement" apply-on-change="true"/>
+			</horizontal>
+		</vertical>
+		<horizontal>
+			<slider-setting text="Duration" value="ceDuration" min="0.00" max="0.5" interactable="~CustomChainElement" id="ceDurationS"/>
+		</horizontal>
+		<!--
+			<horizontal>
+				<slider-setting text="Frequency" value="ceFrequency" min="0" max="1"  interactable="~CustomChainElement" id="ceFrequencyS"/>
+			</horizontal>
+		-->
+		<horizontal>
+			<slider-setting text="Strength" value="ceStrength" min="0.01" max="1" interactable="~CustomChainElement" id="ceStrengthS"/>
 		</horizontal>
 	</vertical>
 </settings-container>
