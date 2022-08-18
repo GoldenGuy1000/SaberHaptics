@@ -14,6 +14,7 @@ namespace SaberHaptics
         public bool leftControllerRumble { get; set; } = true;
         public bool rightControllerRumble { get; set; } = true;
         public bool ArcRumble { get; set; } = true;
+        public HapticPresetSO ArcImpact { get; set; } = DefaultNotePresets.ContinuousRumbleHapticPreset;
         // public bool swapControllerRumble { get; set; } = false;
 
         public bool CustomNormal = false;
