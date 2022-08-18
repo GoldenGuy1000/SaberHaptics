@@ -28,5 +28,14 @@ namespace SaberHaptics
             _frequency = 0.5f,
             _strength = 1f
         };
+
+        public static readonly HapticPresetSO ContinuousRumbleHapticPreset = new HapticPresetSO
+        {
+            name = "Slider",
+            _continuous = true,
+            _duration = 0.01f,
+            _frequency = 0.5f,
+            _strength = 0.75f
+        };
     }
 }

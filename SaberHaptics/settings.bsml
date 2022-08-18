@@ -7,8 +7,17 @@
 		<horizontal>
 			<checkbox text="Right Controller Rumble" value="rightControllerRumble"/>
 		</horizontal>
+		<!--arc settings-->
+		<vertical vertical-fit="MinSize" pad-top="3">
+			<horizontal>
+				<checkbox text="Arc Rumble" value="ArcRumble" apply-on-change="true"/>
+			</horizontal>
+			<horizontal pad-right="25">
+				<clickable-text text="⭯ Reset" align="Right" on-click="ArcReset"/>
+			</horizontal>
+		</vertical>
 		<horizontal>
-			<checkbox text="Arc Rumble" value="ArcRumble"/>
+			<slider-setting text="Arc Rumble Strength" value="ArcStrength" min="0.0" max="1.0" interactable="~ArcRumble" id="ArcStrengthS" formatter="%"/>
 		</horizontal>
 	</vertical>
 	<!--note adjustment-->
@@ -17,7 +26,7 @@
 			<vertical vertical-fit="MinSize" spacing="8">
 				<horizontal>
 					<clickable-text text="⮌ Back" align="Left" click-event="back"/>
-					<clickable-text text='⭯ Reset All' align="Right" on-click="aReset"/>
+					<clickable-text text='⭯ Reset All' align="Right" on-click="ResetAll"/>
 				</horizontal>
 				<vertical vertical-fit="MinSize">
 					<horizontal pad-right="40">
@@ -39,7 +48,7 @@
 					</horizontal>
 				-->
 				<horizontal>
-					<slider-setting text="Strength" value="nStrength" min="0.01" max="1" interactable="~CustomNormal" id="nStrengthS"/>
+					<slider-setting text="Strength" value="nStrength" min="0.01" max="1" interactable="~CustomNormal" id="nStrengthS" formatter="%"/>
 				</horizontal>
 			</vertical>
 			<vertical vertical-fit="MinSize" spacing="8">
@@ -63,7 +72,7 @@
 					</horizontal>
 				-->
 				<horizontal>
-					<slider-setting text="Strength" value="bStrength" min="0.01" max="1" interactable="~CustomBomb" id="bStrengthS"/>
+					<slider-setting text="Strength" value="bStrength" min="0.01" max="1" interactable="~CustomBomb" id="bStrengthS" formatter="%"/>
 				</horizontal>
 			</vertical>
 			<vertical vertical-fit="MinSize" spacing="8">
@@ -87,7 +96,7 @@
 					</horizontal>
 				-->
 				<horizontal>
-					<slider-setting text="Strength" value="chStrength" min="0.01" max="1" interactable="~CustomChainHead" id="chStrengthS"/>
+					<slider-setting text="Strength" value="chStrength" min="0.01" max="1" interactable="~CustomChainHead" id="chStrengthS" formatter="%"/>
 				</horizontal>
 			</vertical>
 			<vertical vertical-fit="MinSize" spacing="8">
@@ -111,7 +120,7 @@
 					</horizontal>
 				-->
 				<horizontal>
-					<slider-setting text="Strength" value="ceStrength" min="0.01" max="1" interactable="~CustomChainElement" id="ceStrengthS"/>
+					<slider-setting text="Strength" value="ceStrength" min="0.01" max="1" interactable="~CustomChainElement" id="ceStrengthS" formatter="%"/>
 				</horizontal>
 			</vertical>
 		</settings-container>

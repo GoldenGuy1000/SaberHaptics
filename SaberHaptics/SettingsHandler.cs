@@ -26,6 +26,14 @@ namespace SaberHaptics
             }
         }
 
+
+        [UIAction("%")]
+        string PercentFormat(float value)
+        {
+            return $"{(int)(value * 100)}%";
+        }
+
+
         [UIValue("ArcRumble")]
         bool ArcRumble
         {
@@ -33,12 +41,31 @@ namespace SaberHaptics
             set
             {
                 Configuration.Instance.ArcRumble = value;
+                ArcStrengthS.interactable = value;
             }
         }
 
+        [UIComponent("ArcStrengthS")]
+        SliderSetting ArcStrengthS;
 
-        [UIAction("aReset")]
-        void aReset()
+        [UIValue("ArcStrength")]
+        float ArcHapticStrength
+        {
+            get => Configuration.Instance.SliderImpact._strength;
+            set
+            {
+                Configuration.Instance.SliderImpact._strength = value;
+            }
+        }
+
+        [UIAction("ArcReset")]
+        void ArcReset()
+        {
+            ArcStrengthS.Value = DefaultNotePresets.ContinuousRumbleHapticPreset._strength;
+        }
+
+        [UIAction("ResetAll")]
+        void ResetAll()
         {
             nReset(); bReset(); chReset(); ceReset();
         }

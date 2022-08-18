@@ -11,9 +11,15 @@ namespace SaberHaptics
 
         [HarmonyPatch(typeof(SliderHapticFeedbackInteractionEffect), nameof(SliderHapticFeedbackInteractionEffect.Update))]
         [HarmonyPrefix]
-        static bool SliderHapticPatch()
+        static bool SliderHapticPatch(/* HapticPresetSO ____hapticPreset */)
         {
-            return Configuration.Instance.ArcRumble; // (run the method if arcrumble is enabled, don't if it isn't)
+			/* Plugin.Log.Info(____hapticPreset.name + ":" +
+				"\n\tcontinuous - " + ____hapticPreset._continuous +
+				"\n\tduration - " + ____hapticPreset._duration +
+				"\n\tfrequency - " + ____hapticPreset._frequency +
+				"\n\tstrength - " + ____hapticPreset._strength); */
+
+			return Configuration.Instance.ArcRumble; // (run the method if arcrumble is enabled, don't if it isn't)
         }
 
 		[HarmonyPatch(typeof(NoteCutCoreEffectsSpawner), nameof(NoteCutCoreEffectsSpawner.HandleNoteWasCut))]

@@ -45,10 +45,8 @@ namespace SaberHaptics
 }
 // for 1.0:
 // TODO: saber self collision, wall collision
-// TODO: license
-// TODO: % setting for sliders
 
-// TODO: extend setting slider length
+// TODO: extend setting slider length <- actually I think they're fine tbh
 // TODO: funny swap saber haptics
 
 // tweaks55 -- https://github.com/kinsi55/BeatSaber_Tweaks55
