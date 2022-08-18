@@ -44,7 +44,7 @@ namespace SaberHaptics
     }
 }
 // for 1.0:
-// TODO: saber self collision, wall collision
+// TODO: saber self collision
 
 // TODO: extend setting slider length <- actually I think they're fine tbh
 // TODO: funny swap saber haptics

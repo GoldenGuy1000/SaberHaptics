@@ -8,17 +8,12 @@ namespace SaberHaptics
     class HarmonyPatches
     {
 		static NoteData.GameplayType lastNoteCut;
+		static bool callingHapticFeedbackFromWallCollision = false;
 
         [HarmonyPatch(typeof(SliderHapticFeedbackInteractionEffect), nameof(SliderHapticFeedbackInteractionEffect.Update))]
         [HarmonyPrefix]
-        static bool SliderHapticPatch(/* HapticPresetSO ____hapticPreset */)
+        static bool SliderHapticPatch()
         {
-			/* Plugin.Log.Info(____hapticPreset.name + ":" +
-				"\n\tcontinuous - " + ____hapticPreset._continuous +
-				"\n\tduration - " + ____hapticPreset._duration +
-				"\n\tfrequency - " + ____hapticPreset._frequency +
-				"\n\tstrength - " + ____hapticPreset._strength); */
-
 			return Configuration.Instance.ArcRumble; // (run the method if arcrumble is enabled, don't if it isn't)
         }
 
@@ -72,9 +67,43 @@ namespace SaberHaptics
 			return false;
         }
 
+
+		[HarmonyPatch(typeof(ObstacleSaberSparkleEffectManager), nameof(ObstacleSaberSparkleEffectManager.Update))]
+		[HarmonyPrefix]
+		static void SaberWallHapticBoolSet()
+        {
+			callingHapticFeedbackFromWallCollision = true;
+        }
+
 		[HarmonyPatch(typeof(HapticFeedbackController), nameof(HapticFeedbackController.PlayHapticFeedback))]
 		[HarmonyPrefix]
-		static bool DisableHapticsPatch(XRNode node)
+		static bool SaberWallHapticPatch(ref HapticPresetSO hapticPreset)
+        {
+			if (callingHapticFeedbackFromWallCollision)
+			{
+				if (Configuration.Instance.WallRumble)
+                {
+					hapticPreset = Configuration.Instance.WallImpact;
+				}
+				else
+                {
+					return false;
+                }
+			}
+			return true;
+        }
+
+		[HarmonyPatch(typeof(ObstacleSaberSparkleEffectManager), nameof(ObstacleSaberSparkleEffectManager.Update))]
+		[HarmonyPostfix]
+		static void SaberWallHapticBoolReset()
+        {
+			callingHapticFeedbackFromWallCollision = false;
+		}
+
+
+		[HarmonyPatch(typeof(HapticFeedbackController), nameof(HapticFeedbackController.PlayHapticFeedback))]
+		[HarmonyPrefix]
+		static bool DisableHapticsByHandPatch(XRNode node)
         {
 			// if rumble for a certain saber isn't enabled, don't send haptic feedback
 			return (Configuration.Instance.leftControllerRumble && node == XRNode.LeftHand) || (Configuration.Instance.rightControllerRumble && node == XRNode.RightHand);

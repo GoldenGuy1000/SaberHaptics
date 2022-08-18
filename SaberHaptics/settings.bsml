@@ -19,6 +19,18 @@
 		<horizontal>
 			<slider-setting text="Arc Rumble Strength" value="ArcStrength" min="0.0" max="1.0" interactable="~ArcRumble" id="ArcStrengthS" formatter="%"/>
 		</horizontal>
+		<!--wall settings-->
+		<vertical vertical-fit="MinSize" pad-top="3">
+			<horizontal>
+				<checkbox text="Wall Rumble" value="WallRumble" apply-on-change="true"/>
+			</horizontal>
+			<horizontal pad-right="25">
+				<clickable-text text="⭯ Reset" align="Right" on-click="WallReset"/>
+			</horizontal>
+		</vertical>
+		<horizontal>
+			<slider-setting text="Wall Rumble Strength" value="WallStrength" min="0.0" max="1.0" interactable="~WallRumble" id="WallStrengthS" formatter="%"/>
+		</horizontal>
 	</vertical>
 	<!--note adjustment-->
 	<settings-submenu text="Specific Note Adjustment" hover-hint="Set the internal values for each note" font-size="7">

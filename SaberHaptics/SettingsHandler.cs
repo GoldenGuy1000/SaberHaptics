@@ -33,6 +33,7 @@ namespace SaberHaptics
             return $"{(int)(value * 100)}%";
         }
 
+        #region Arc
 
         [UIValue("ArcRumble")]
         bool ArcRumble
@@ -58,11 +59,45 @@ namespace SaberHaptics
             }
         }
 
-        [UIAction("ArcReset")]
+        [UIAction("WallReset")]
         void ArcReset()
         {
             ArcStrengthS.Value = DefaultNotePresets.ContinuousRumbleHapticPreset._strength;
         }
+        #endregion
+
+        #region Wall
+
+        [UIValue("WallRumble")]
+        bool WallRumble
+        {
+            get => Configuration.Instance.WallRumble;
+            set
+            {
+                Configuration.Instance.WallRumble = value;
+                WallStrengthS.interactable = value;
+            }
+        }
+
+        [UIComponent("WallStrengthS")]
+        SliderSetting WallStrengthS;
+
+        [UIValue("WallStrength")]
+        float WallHapticStrength
+        {
+            get => Configuration.Instance.WallImpact._strength;
+            set
+            {
+                Configuration.Instance.WallImpact._strength = value;
+            }
+        }
+
+        [UIAction("WallReset")]
+        void WallReset()
+        {
+            WallStrengthS.Value = DefaultNotePresets.ContinuousRumbleHapticPreset._strength;
+        }
+        #endregion
 
         [UIAction("ResetAll")]
         void ResetAll()
