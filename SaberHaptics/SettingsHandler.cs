@@ -36,6 +36,13 @@ namespace SaberHaptics
             }
         }
 
+
+        [UIAction("aReset")]
+        void aReset()
+        {
+            nReset(); bReset(); chReset(); ceReset();
+        }
+
         #region Custom Normal
 
         [UIValue("CustomNormal")]

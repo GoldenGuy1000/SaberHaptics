@@ -45,7 +45,6 @@ namespace SaberHaptics
 }
 // for 1.0:
 // TODO: saber self collision, wall collision
-// TODO: reset button for all settings & each note type
 // TODO: license
 // TODO: % setting for sliders
 
