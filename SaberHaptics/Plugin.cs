@@ -46,10 +46,7 @@ namespace SaberHaptics
 
 // todo's and interesting links:
 
-// TODO: test each setting
-// TODO: manifest.json update
-// TODO: publicise github repo & post mod
-
+// TODO: make a menu for the mods section of the left menu so it's faster to configure
 // TODO: % modifier of strength & duration across all notes
 // TODO: saber self collision
 // TODO: extend setting slider length <- actually I think they're fine tbh - NVM
