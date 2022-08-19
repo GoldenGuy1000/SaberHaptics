@@ -59,7 +59,7 @@ namespace SaberHaptics
             }
         }
 
-        [UIAction("WallReset")]
+        [UIAction("ArcReset")]
         void ArcReset()
         {
             ArcStrengthS.Value = DefaultNotePresets.ContinuousRumbleHapticPreset._strength;
@@ -113,7 +113,7 @@ namespace SaberHaptics
             get => Configuration.Instance.CustomNormal;
             set
             {
-                Plugin.Log.Info("customnormal = " + value.ToString());
+                // Plugin.Log.Info("customnormal = " + value.ToString());
                 nDurationS.interactable = /*nFrequencyS.interactable =*/ nStrengthS.interactable = value;
                 Configuration.Instance.CustomNormal = value;
             }
@@ -122,7 +122,7 @@ namespace SaberHaptics
         [UIAction("nReset")]
         void nReset()
         {
-            Plugin.Log.Info("reset normal");
+            // Plugin.Log.Info("reset normal");
             nDurationS.Value = DefaultNotePresets.HitNoteHapticPreset._duration;
             /* nFrequencyS.Value = DefaultNotePresets.HitNoteHapticPreset._frequency; */
             nStrengthS.Value = DefaultNotePresets.HitNoteHapticPreset._strength;
@@ -179,7 +179,7 @@ namespace SaberHaptics
             get => Configuration.Instance.CustomBomb;
             set
             {
-                Plugin.Log.Info("custombomb = " + value.ToString());
+                // Plugin.Log.Info("custombomb = " + value.ToString());
                 bDurationS.interactable = /*bFrequencyS.interactable =*/ bStrengthS.interactable = value;
                 Configuration.Instance.CustomBomb = value;
             }
@@ -188,7 +188,7 @@ namespace SaberHaptics
         [UIAction("bReset")]
         void bReset()
         {
-            Plugin.Log.Info("reset bomb");
+            // Plugin.Log.Info("reset bomb");
             bDurationS.Value = DefaultNotePresets.HitNoteHapticPreset._duration;
             /* bFrequencyS.Value = DefaultNotePresets.HitNoteHapticPreset._frequency; */
             bStrengthS.Value = DefaultNotePresets.HitNoteHapticPreset._strength;
@@ -245,7 +245,7 @@ namespace SaberHaptics
             get => Configuration.Instance.CustomChainHead;
             set
             {
-                Plugin.Log.Info("customchainhead = " + value.ToString());
+                // Plugin.Log.Info("customchainhead = " + value.ToString());
                 chDurationS.interactable = /*chFrequencyS.interactable =*/ chStrengthS.interactable = value;
                 Configuration.Instance.CustomChainHead = value;
             }
@@ -254,7 +254,7 @@ namespace SaberHaptics
         [UIAction("chReset")]
         void chReset()
         {
-            Plugin.Log.Info("reset chain head");
+            // Plugin.Log.Info("reset chain head");
             chDurationS.Value = DefaultNotePresets.HitBurstSliderHeadHapticPreset._duration;
             /* chFrequencyS.Value = DefaultNotePresets.HitBurstSliderHeadHapticPreset._frequency; */
             chStrengthS.Value = DefaultNotePresets.HitBurstSliderHeadHapticPreset._strength;
@@ -311,7 +311,7 @@ namespace SaberHaptics
             get => Configuration.Instance.CustomChainElement;
             set
             {
-                Plugin.Log.Info("customchainelement = " + value.ToString());
+                // Plugin.Log.Info("customchainelement = " + value.ToString());
                 ceDurationS.interactable = /*ceFrequencyS.interactable =*/ ceStrengthS.interactable = value;
                 Configuration.Instance.CustomChainElement = value;
             }
@@ -320,7 +320,7 @@ namespace SaberHaptics
         [UIAction("ceReset")]
         void ceReset()
         {
-            Plugin.Log.Info("reset chain element");
+            // Plugin.Log.Info("reset chain element");
             ceDurationS.Value = DefaultNotePresets.HitBurstSliderElementHapticPreset._duration;
             /* ceFrequencyS.Value = DefaultNotePresets.HitBurstSliderElementHapticPreset._frequency; */
             ceStrengthS.Value = DefaultNotePresets.HitBurstSliderElementHapticPreset._strength;

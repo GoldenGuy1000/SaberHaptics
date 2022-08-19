@@ -1,4 +1,4 @@
-﻿<settings-container spacing="6.0" pad-top="3" pad-bottom="3">
+﻿<settings-container spacing="5.0" pad-top="3" pad-bottom="3">
 	<!--toggle settings-->
 	<vertical vertical-fit="MinSize" spacing="7">
 		<horizontal>
@@ -7,36 +7,13 @@
 		<horizontal>
 			<checkbox text="Right Controller Rumble" value="rightControllerRumble"/>
 		</horizontal>
-		<!--arc settings-->
-		<vertical vertical-fit="MinSize" pad-top="3">
-			<horizontal>
-				<checkbox text="Arc Rumble" value="ArcRumble" apply-on-change="true"/>
-			</horizontal>
-			<horizontal pad-right="25">
-				<clickable-text text="⭯ Reset" align="Right" on-click="ArcReset"/>
-			</horizontal>
-		</vertical>
-		<horizontal>
-			<slider-setting text="Arc Rumble Strength" value="ArcStrength" min="0.0" max="1.0" interactable="~ArcRumble" id="ArcStrengthS" formatter="%"/>
-		</horizontal>
-		<!--wall settings-->
-		<vertical vertical-fit="MinSize" pad-top="3">
-			<horizontal>
-				<checkbox text="Wall Rumble" value="WallRumble" apply-on-change="true"/>
-			</horizontal>
-			<horizontal pad-right="25">
-				<clickable-text text="⭯ Reset" align="Right" on-click="WallReset"/>
-			</horizontal>
-		</vertical>
-		<horizontal>
-			<slider-setting text="Wall Rumble Strength" value="WallStrength" min="0.0" max="1.0" interactable="~WallRumble" id="WallStrengthS" formatter="%"/>
-		</horizontal>
 	</vertical>
+
 	<!--note adjustment-->
-	<settings-submenu text="Specific Note Adjustment" hover-hint="Set the internal values for each note" font-size="7">
-		<settings-container spacing="12.0" pad-top="3" pad-bottom="3">
+	<settings-submenu text="> Specific Note Customization" hover-hint="Set the internal values for each note" font-size="6">
+		<settings-container spacing="11.0" pad-top="3" pad-bottom="3">
 			<vertical vertical-fit="MinSize" spacing="8">
-				<horizontal>
+				<horizontal pad-bottom="1">
 					<clickable-text text="⮌ Back" align="Left" click-event="back"/>
 					<clickable-text text='⭯ Reset All' align="Right" on-click="ResetAll"/>
 				</horizontal>
@@ -48,7 +25,7 @@
 						<clickable-text text="⭯ Reset" align="Right" on-click="nReset"/>
 					</horizontal>
 					<horizontal>
-						<checkbox text="" value="CustomNormal" apply-on-change="true"/>
+						<checkbox text="" value="CustomNormal" apply-on-change="true" hover-hint="Use custom settings for normal notes"/>
 					</horizontal>
 				</vertical>
 				<horizontal>
@@ -72,7 +49,7 @@
 						<clickable-text text="⭯ Reset" align="Right" on-click="bReset"/>
 					</horizontal>
 					<horizontal>
-						<checkbox text="" value="CustomBomb" apply-on-change="true"/>
+						<checkbox text="" value="CustomBomb" apply-on-change="true" hover-hint="Use custom settings for bombs"/>
 					</horizontal>
 				</vertical>
 				<horizontal>
@@ -96,7 +73,7 @@
 						<clickable-text text="⭯ Reset" align="Right" on-click="chReset"/>
 					</horizontal>
 					<horizontal>
-						<checkbox text="" value="CustomChainHead" apply-on-change="true"/>
+						<checkbox text="" value="CustomChainHead" apply-on-change="true" hover-hint="Use custom settings for chain heads"/>
 					</horizontal>
 				</vertical>
 				<horizontal>
@@ -120,7 +97,7 @@
 						<clickable-text text="⭯ Reset" align="Right" on-click="ceReset"/>
 					</horizontal>
 					<horizontal>
-						<checkbox text="" value="CustomChainElement" apply-on-change="true"/>
+						<checkbox text="" value="CustomChainElement" apply-on-change="true" hover-hint="Use custom settings for chain elements"/>
 					</horizontal>
 				</vertical>
 				<horizontal>
@@ -137,4 +114,31 @@
 			</vertical>
 		</settings-container>
 	</settings-submenu>
+	
+	<vertical vertical-fit="MinSize" spacing="7">
+		<!--arc settings-->
+		<vertical vertical-fit="MinSize">
+			<horizontal>
+				<checkbox text="Arc Rumble" value="ArcRumble" apply-on-change="true" hover-hint="Enable/Disable arc rumble"/>
+			</horizontal>
+			<horizontal pad-right="25">
+				<clickable-text text="⭯ Reset" align="Right" on-click="ArcReset"/>
+			</horizontal>
+		</vertical>
+		<horizontal>
+			<slider-setting text="Arc Rumble Strength" value="ArcStrength" min="0.0" max="1.0" interactable="~ArcRumble" id="ArcStrengthS" formatter="%"/>
+		</horizontal>
+		<!--wall settings-->
+		<vertical vertical-fit="MinSize" pad-top="2">
+			<horizontal>
+				<checkbox text="Wall Rumble" value="WallRumble" apply-on-change="true" hover-hint="Enable/Disable wall rumble"/>
+			</horizontal>
+			<horizontal pad-right="25">
+				<clickable-text text="⭯ Reset" align="Right" on-click="WallReset"/>
+			</horizontal>
+		</vertical>
+		<horizontal>
+			<slider-setting text="Wall Rumble Strength" value="WallStrength" min="0.0" max="1.0" interactable="~WallRumble" id="WallStrengthS" formatter="%"/>
+		</horizontal>
+	</vertical>
 </settings-container>
