@@ -46,8 +46,13 @@ namespace SaberHaptics
 
 // todo's and interesting links:
 
+// TODO: test each setting
+// TODO: manifest.json update
+// TODO: publicise github repo & post mod
+
+// TODO: % modifier of strength & duration across all notes
 // TODO: saber self collision
-// TODO: extend setting slider length <- actually I think they're fine tbh
+// TODO: extend setting slider length <- actually I think they're fine tbh - NVM
 // TODO: funny swap saber haptics
 
 // tweaks55 -- https://github.com/kinsi55/BeatSaber_Tweaks55

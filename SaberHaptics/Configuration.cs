@@ -11,8 +11,8 @@ namespace SaberHaptics
     {
         public static Configuration Instance { get; set; }
 
-        public bool leftControllerRumble { get; set; } = true;
-        public bool rightControllerRumble { get; set; } = true;
+        public bool LeftControllerRumble { get; set; } = true;
+        public bool RightControllerRumble { get; set; } = true;
         public bool ArcRumble { get; set; } = true;
         public HapticPresetSO ArcImpact { get; set; } = DefaultNotePresets.ContinuousRumbleHapticPreset;
         public bool WallRumble { get; set; } = true;

@@ -10,6 +10,8 @@ namespace SaberHaptics
 		static NoteData.GameplayType lastNoteCut;
 		static bool callingHapticFeedbackFromWallCollision = false;
 
+        #region Slider Patch
+
         [HarmonyPatch(typeof(SliderHapticFeedbackInteractionEffect), nameof(SliderHapticFeedbackInteractionEffect.Update))]
         [HarmonyPrefix]
         static bool SliderHapticPatch()
@@ -28,6 +30,9 @@ namespace SaberHaptics
             }
 			return true;
         }
+		#endregion
+
+		#region Note Haptics Patch
 
 		[HarmonyPatch(typeof(NoteCutCoreEffectsSpawner), nameof(NoteCutCoreEffectsSpawner.HandleNoteWasCut))]
 		[HarmonyPrefix]
@@ -66,9 +71,11 @@ namespace SaberHaptics
 
 			return false;
         }
+        #endregion
 
+        #region Wall Patch
 
-		[HarmonyPatch(typeof(ObstacleSaberSparkleEffectManager), nameof(ObstacleSaberSparkleEffectManager.Update))]
+        [HarmonyPatch(typeof(ObstacleSaberSparkleEffectManager), nameof(ObstacleSaberSparkleEffectManager.Update))]
 		[HarmonyPrefix]
 		static void SaberWallHapticBoolSet()
         {
@@ -99,19 +106,21 @@ namespace SaberHaptics
         {
 			callingHapticFeedbackFromWallCollision = false;
 		}
+        #endregion
 
 
-		[HarmonyPatch(typeof(HapticFeedbackController), nameof(HapticFeedbackController.PlayHapticFeedback))]
+        [HarmonyPatch(typeof(HapticFeedbackController), nameof(HapticFeedbackController.PlayHapticFeedback))]
 		[HarmonyPrefix]
 		static bool DisableHapticsByHandPatch(XRNode node)
         {
 			// if rumble for a certain saber isn't enabled, don't send haptic feedback
-			return (Configuration.Instance.leftControllerRumble && node == XRNode.LeftHand) || (Configuration.Instance.rightControllerRumble && node == XRNode.RightHand);
+			return (Configuration.Instance.LeftControllerRumble && node == XRNode.LeftHand) || (Configuration.Instance.RightControllerRumble && node == XRNode.RightHand);
 		}
 
+		#region dev
 
 		// log the default presets (put in DefaultNotePresets)
-		
+
 		/*[HarmonyPatch(typeof(NoteCutHapticEffect), nameof(NoteCutHapticEffect.HitNote))]
 		[HarmonyPrefix]
 		static void GetNoteHapticPresets(HapticPresetSO ____normalPreset, HapticPresetSO ____shortNormalPreset, HapticPresetSO ____shortWeakPreset)
@@ -132,5 +141,6 @@ namespace SaberHaptics
 				"\n\tfrequency - " + ____shortWeakPreset._frequency +
 				"\n\tstrength - " + ____shortWeakPreset._strength);
 		}*/
+		#endregion
 	}
 }

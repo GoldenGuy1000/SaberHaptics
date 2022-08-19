@@ -5,33 +5,33 @@ namespace SaberHaptics
 {
     class SettingsHandler : PersistentSingleton<SettingsHandler>
     {
+        [UIAction("%")]
+        string PercentFormat(float value)
+        {
+            return $"{(int)(value * 100)}%";
+        }
+
 
         [UIValue("leftControllerRumble")]
         bool LeftControllerRumble
         {
-            get => Configuration.Instance.leftControllerRumble;
+            get => Configuration.Instance.LeftControllerRumble;
             set
             {
-                Configuration.Instance.leftControllerRumble = value;
+                Configuration.Instance.LeftControllerRumble = value;
             }
         }
 
         [UIValue("rightControllerRumble")]
         bool RightControllerRumble
         {
-            get => Configuration.Instance.rightControllerRumble;
+            get => Configuration.Instance.RightControllerRumble;
             set
             {
-                Configuration.Instance.rightControllerRumble = value;
+                Configuration.Instance.RightControllerRumble = value;
             }
         }
 
-
-        [UIAction("%")]
-        string PercentFormat(float value)
-        {
-            return $"{(int)(value * 100)}%";
-        }
 
         #region Arc
 
